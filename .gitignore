@@ -1,0 +1,9 @@
+.vs/
+Library/
+Logs/
+obj/
+Temp/
+*.csproj
+*.sln
+Assets/Plugins/NativeShare/
+Assets/Plugins/NativeShare.meta

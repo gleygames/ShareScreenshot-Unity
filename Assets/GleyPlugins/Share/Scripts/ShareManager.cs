@@ -1,10 +1,5 @@
 ﻿namespace GleyShare
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-
     public class ShareManager 
     {
         private static ShareManager instance;
@@ -30,11 +25,11 @@
 #endif
         }
 
-        public void SharePicture(string path, string filename)
+        public void SharePicture(string path)
         {
 #if UseNativeShare
         NativeShare share = new NativeShare();
-        share.AddFile(path + "/" + filename);
+        share.AddFile(path);
         share.Share();
 #endif
         }

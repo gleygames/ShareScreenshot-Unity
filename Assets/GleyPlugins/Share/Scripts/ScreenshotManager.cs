@@ -59,15 +59,27 @@
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log("Error loading screenshot " + www.error);
-                SpriteLoaded?.Invoke(null);
-                TextureLoaded?.Invoke(null);
+                if (SpriteLoaded != null)
+                {
+                    SpriteLoaded.Invoke(null);
+                }
+                if (TextureLoaded != null)
+                {
+                    TextureLoaded.Invoke(null);
+                }
             }
             else
             {
                 Texture2D tex = ((DownloadHandlerTexture)www.downloadHandler).texture;
-                TextureLoaded?.Invoke(tex);
+                if (TextureLoaded != null)
+                {
+                    TextureLoaded.Invoke(tex);
+                }
                 Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
-                SpriteLoaded?.Invoke(sprite);
+                if (SpriteLoaded != null)
+                {
+                    SpriteLoaded.Invoke(sprite);
+                }
             }
         }
     }
